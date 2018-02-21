@@ -389,16 +389,16 @@ declare namespace Draft {
             import ContentBlock = Draft.Model.ImmutableData.ContentBlock;
 
             /**
-            * An interface for document decorator classes, allowing the creation of
-            * custom decorator classes.
-            *
-            * See `CompositeDraftDecorator` for the most common use case.
-            */
+             * An interface for document decorator classes, allowing the creation of
+             * custom decorator classes.
+             *
+             * See `CompositeDraftDecorator` for the most common use case.
+             */
             interface DraftDecoratorType {
                 /**
                  * Given a `ContentBlock`, return an immutable List of decorator keys.
                  */
-                getDecorations(block: ContentBlock): Immutable.List<string>;
+                getDecorations(block: ContentBlock, contentState: ContentState): Immutable.List<string>;
 
                 /**
                  * Given a decorator key, return the component to use when rendering
@@ -988,6 +988,7 @@ import DraftEntityType = Draft.Model.Constants.DraftEntityType;
 import DraftRemovalDirection = Draft.Model.Constants.DraftRemovalDirection;
 import DraftHandleValue = Draft.Model.Constants.DraftHandleValue;
 import DraftInsertionType = Draft.Model.Constants.DraftInsertionType;
+import DraftDecorator = Draft.Model.Decorators.DraftDecorator;
 
 export {
     Editor,
@@ -1036,4 +1037,5 @@ export {
     DraftRemovalDirection,
     DraftHandleValue,
     DraftInsertionType,
+    DraftDecorator,
 };
